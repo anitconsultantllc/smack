@@ -16,7 +16,6 @@ class ChannelVC: UIViewController {
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.size.width - 60
     }
     
-
     
 
 }
