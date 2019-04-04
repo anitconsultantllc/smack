@@ -99,7 +99,7 @@
                                 <rect key="frame" x="281" y="100" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="aSR-6o-KKH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="aSR-6o-KKH" customClass="CircleImage" customModule="smack" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="UNQ-9j-60w"/>
@@ -407,7 +407,7 @@
                                 <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="6Lt-Hq-utR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="6Lt-Hq-utR" customClass="CircleImage" customModule="smack" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="299" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="6qT-E2-mz6"/>
@@ -429,14 +429,20 @@
                                     <action selector="pickBgColorPressed:" destination="uuY-eX-Cxv" eventType="touchUpInside" id="gH4-4y-Oac"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DmP-uR-uEf">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DmP-uR-uEf" firstAttribute="centerY" secondItem="Cqc-Kp-CIJ" secondAttribute="centerY" constant="-100" id="2dA-pM-Zh6"/>
                             <constraint firstItem="gaE-3a-hVM" firstAttribute="top" secondItem="gv0-jZ-szn" secondAttribute="bottom" constant="40" id="49r-NO-Sos"/>
                             <constraint firstItem="gv0-jZ-szn" firstAttribute="top" secondItem="kV8-A1-PCz" secondAttribute="top" constant="40" id="91q-VE-yut"/>
                             <constraint firstItem="kV8-A1-PCz" firstAttribute="trailing" secondItem="PI7-JR-sK3" secondAttribute="trailing" constant="16" id="BL0-FB-zCR"/>
                             <constraint firstItem="5Rf-eW-qup" firstAttribute="top" secondItem="6Lt-Hq-utR" secondAttribute="top" id="Bmr-Nw-2lm"/>
                             <constraint firstItem="gaE-3a-hVM" firstAttribute="centerX" secondItem="Cqc-Kp-CIJ" secondAttribute="centerX" id="CBp-SE-c5d"/>
+                            <constraint firstItem="DmP-uR-uEf" firstAttribute="centerX" secondItem="Cqc-Kp-CIJ" secondAttribute="centerX" id="LwX-v3-WlR"/>
                             <constraint firstItem="6Lt-Hq-utR" firstAttribute="centerX" secondItem="Cqc-Kp-CIJ" secondAttribute="centerX" id="S5q-XY-Lhf"/>
                             <constraint firstItem="6Lt-Hq-utR" firstAttribute="top" secondItem="gaE-3a-hVM" secondAttribute="bottom" constant="40" id="U87-ew-cDf"/>
                             <constraint firstItem="5Rf-eW-qup" firstAttribute="centerX" secondItem="Cqc-Kp-CIJ" secondAttribute="centerX" id="Wyh-tN-TTJ"/>
@@ -453,6 +459,7 @@
                     <connections>
                         <outlet property="emailTxt" destination="coJ-W6-CAd" id="eed-AB-cve"/>
                         <outlet property="passwordTxt" destination="SiF-7c-YiO" id="lFW-Yn-VJs"/>
+                        <outlet property="spinner" destination="DmP-uR-uEf" id="CnM-yQ-giY"/>
                         <outlet property="userImg" destination="6Lt-Hq-utR" id="g60-Wf-a5G"/>
                         <outlet property="usernameTxt" destination="0LU-6O-vi3" id="TwX-CW-vEx"/>
                         <segue destination="r6m-3F-tKU" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="nam-xc-DMY"/>
@@ -547,7 +554,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="dVQ-xI-Xhd" id="v4L-rC-jlc"/>
-                        <outlet property="setmentControl" destination="sxG-ll-Dcv" id="rKe-AJ-lCd"/>
+                        <outlet property="segmentControl" destination="sxG-ll-Dcv" id="WjQ-hY-r5B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njh-tm-vgp" userLabel="First Responder" sceneMemberID="firstResponder"/>
