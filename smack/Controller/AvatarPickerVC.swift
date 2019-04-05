@@ -13,10 +13,14 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     //Outlets
     
     @IBOutlet weak var collectionView: UICollectionView!
+
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     //Variables
     var avatarType = AvatarType.dark
+
+    @IBOutlet weak var setmentControl: UISegmentedControl!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,7 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @IBAction func segmentControlChanged(_ sender: Any) {
+
         if segmentControl.selectedSegmentIndex == 0 {
             avatarType = .dark
         }else{
@@ -69,6 +74,7 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             UserDataService.instance.setAvatarName(avatarName: "light\(indexPath.item)")
         }
         self.dismiss(animated: true, completion: nil)
+
     }
     
     @IBAction func backPressed(_ sender: Any) {

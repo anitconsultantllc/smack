@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 public enum AvatarType: Int {
     case dark = 0
     case light = 1
@@ -24,6 +25,7 @@ class AvatarCell: UICollectionViewCell {
         setUpView()
     }
     
+
     func configureCell(index: Int, type: AvatarType){
         if type == AvatarType.dark{
             avatarImage.image = UIImage(named: "dark\(index)")
