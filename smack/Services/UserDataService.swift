@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class UserDataService{
+class UserDataService {
     static let instance = UserDataService()
     
     public private(set) var id = ""
@@ -31,45 +31,7 @@ class UserDataService{
         self.avatarName = avatarName
     }
     
-    func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler){
-        let lowerCaseEmail = email.lowercased()
-        let body: [String: Any] = [
-        "name": name,
-        "email": lowerCaseEmail,
-        "avatarName": avatarName,
-        "avatarColor": avatarColor
-        ]
-        let header = [
-            "Authorization": "Bearer \(AuthService.instance.authToken)",
-            "Content-Type": "application/json; charset=utf-8"
-        ]
-        
-        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-            if response.result.error == nil {
-                do{
-                guard let data = response.data else {return}
-                let json = try JSON(data: data)
-                let id = json["_id"].stringValue
-                let color = json["avatarColor"].stringValue
-                let avatarName = json["avatarName"].stringValue
-                let email = json["email"].stringValue
-                let name = json["name"].stringValue
-                
-                UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
-                }catch{
-                    
-                }
-                completion(true)
-                
-            }else{
-                completion(false)
-                debugPrint(response.result.error as Any)
-            }
-        }
-    }
-    
     func returnUIColor(components: String) -> UIColor {
-    //    "avatarColor": "[0.7725490196078432, 0.796078431372549, 0.39215686274509803, 1]"
         let scanner = Scanner(string: components)
         let skipped = CharacterSet(charactersIn: "[], ")
         let comma = CharacterSet(charactersIn: ",")
@@ -109,5 +71,6 @@ class UserDataService{
         AuthService.instance.userEmail = ""
         AuthService.instance.authToken = ""
     }
+
 }
 
