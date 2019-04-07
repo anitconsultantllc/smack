@@ -30,15 +30,16 @@ class MessageService{
 //                print(self.channels)
                 
                 do{
+                    self.channels.removeAll()
                 if let json = try JSON(data: data).array{
                     for item in json{
-                        let name = item["name"].stringValue
-                        let channelDescription = item["description"].stringValue
-                        let id = item["_id"].stringValue
-                        let channel = Channel(id: id, channelTitle: name, channelDescription: channelDescription)
-                        self.channels.append(channel)
+                            let name = item["name"].stringValue
+                            let channelDescription = item["description"].stringValue
+                            let id = item["_id"].stringValue
+                            let channel = Channel(id: id, channelTitle: name, channelDescription: channelDescription)
+                            self.channels.append(channel)
                     }
-                    print(self.channels[2].channelTitle)
+                    print(self.channels[0].channelTitle)
                     completion(true)
                 }
                 }catch{}
