@@ -22,6 +22,7 @@ class AuthService {
         set {
             defaults.set(newValue, forKey: LOGGED_IN_KEY)
         }
+        
     }
     
     var authToken: String {
