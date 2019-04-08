@@ -9,19 +9,14 @@
 import UIKit
 
 class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     //Outlets
-    
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var setmentControl: UISegmentedControl!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     //Variables
     var avatarType = AvatarType.dark
 
-    @IBOutlet weak var setmentControl: UISegmentedControl!
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self

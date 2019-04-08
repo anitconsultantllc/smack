@@ -72,17 +72,6 @@ class AuthService {
         
         Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             if response.result.error == nil {
-                //Traditional way without SwiftyJSON
-//                if let json = response.result.value as? Dictionary<String, Any>{
-//                    if let email = json["user"] as? String{
-//                        self.userEmail = email
-//                    }
-//                    if let token = json["token"] as? String{
-//                        self.authToken = token
-//                    }
-//                }
-                
-                //SwiftyJSON approach to loging a user
                 guard let data = response.data else{return}
                 do{
                     let json = try JSON(data: data)
@@ -99,7 +88,6 @@ class AuthService {
                 debugPrint(response.result.error as Any)
             }
         }
-        
     }
     
     func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler){
@@ -110,7 +98,6 @@ class AuthService {
             "avatarName": avatarName,
             "avatarColor": avatarColor
         ]
-        
         
         Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
@@ -152,6 +139,4 @@ class AuthService {
             
         }
     }
-    
-   
 }
