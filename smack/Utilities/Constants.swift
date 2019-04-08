@@ -10,6 +10,7 @@ import Foundation
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
+
 //URL Constants
 let BASE_URL = "https://smackchatapi2019.herokuapp.com/v1/"
 
