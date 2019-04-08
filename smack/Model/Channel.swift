@@ -8,14 +8,6 @@
 
 import Foundation
 
-//SWIFT 4 WAY OF PARSING JSON
-//struct Channel : Decodable {
-//    public private(set) var _id: String!
-//    public private(set) var name: String!
-//    public private(set) var description: String!
-//    public private(set) var __v: Int?
-//}
-
 struct Channel  {
     public private(set) var id: String!
     public private(set) var channelTitle: String!

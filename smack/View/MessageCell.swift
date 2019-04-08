@@ -18,7 +18,6 @@ class MessageCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     func configureCell(message: Message){
@@ -26,6 +25,20 @@ class MessageCell: UITableViewCell {
         userNameLbl.text = message.userName ?? ""
         userImage.image = message.userAvatar == nil ?  UIImage(named: "profileDefault") : UIImage(named: message.userAvatar)
         userImage.backgroundColor = message.userAvatar == nil ? UIColor.lightGray :   UserDataService.instance.returnUIColor(components: message.userAvatar)
+        
+        guard var isoDate = message.timeStamp else {return}
+        let end = isoDate.index(isoDate.endIndex, offsetBy: -5)
+        isoDate = isoDate.substring(to: end)
+        
+        let isoFomatter = ISO8601DateFormatter()
+        let chatDate = isoFomatter.date(from: isoDate.appending("Z"))
+        
+        let newFormatter = DateFormatter()
+        newFormatter.dateFormat = "MMM d, h:mm a"
+        
+        if let finalDate = chatDate{
+            let finalDate = newFormatter.string(from: finalDate)
+            timeStampLbl.text = finalDate
+        }
     }
-
 }

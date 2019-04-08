@@ -23,15 +23,6 @@ class MessageService{
         Alamofire.request(URL_GET_CHANNELS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil{
                 guard let data = response.data else {return}
-                
-                //NEW SWIFT 4 WAY OF PARSING JSON IN ONE LINE OF CODE
-//                do{
-//                    self.channels = try JSONDecoder().decode([Channel].self, from: data)
-//                }catch let error{
-//                    debugPrint(error as Any)
-//                }
-//                print(self.channels)
-                
                 do{
                     self.clearChannels()
                     if let json = try JSON(data: data).array{

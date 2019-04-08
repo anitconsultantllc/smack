@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileVC: UIViewController {
     //Outlets
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
@@ -18,7 +17,6 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
         setupView()
     }
     
@@ -46,6 +44,5 @@ class ProfileVC: UIViewController {
     @objc func closeTap(_ recognizer: UITapGestureRecognizer){
         dismiss(animated: true, completion: nil)
     }
-    
     
 }

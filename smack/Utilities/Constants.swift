@@ -10,10 +10,8 @@ import Foundation
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
-
 //URL Constants
 let BASE_URL = "https://smackchatapi2019.herokuapp.com/v1/"
-
 
 //let BASE_URL = "http://localhost:3005/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
@@ -27,16 +25,16 @@ let URL_ = "\(BASE_URL)"
 //Colors
 let smackPurpleColorPlaceHolders = #colorLiteral(red: 0.2588235294, green: 0.3294117647, blue: 0.7254901961, alpha: 0.5)
 
-// Notification Contants
+// Notification Constants
 let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataChanged")
 let NOTIF_CHANNELS_LOADED = Notification.Name("channelsLoaded")
 let NOTIF_CHANNEL_SELECTED = Notification.Name("channelSelected")
+
 //Segues
 let TO_LOGIN = "toLogin"
 let TO_CREATE_ACCOUNT = "toCreateAccount"
 let UNWIND = "unwindToChannel"
 let TO_AVATAR_PICKER = "toAvatarPicker"
-
 
 //User Defaults
 let TOKEN_KEY = "token"
